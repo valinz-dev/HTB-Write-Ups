@@ -1,0 +1,22 @@
+Box: Passage
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap -sC -sV -p- <IP>
+- Found HTTP on port 80, SSH on 22
+- Discovered CMS Made Simple via web content
+
+Exploitation:
+- CMS Made Simple vulnerable to SQLi (public exploit available)
+- Extracted creds from database
+- Used creds to log in via SSH
+
+Privilege Escalation:
+- Enumerated sudo -l, found user allowed to run /usr/bin/perl as root
+- Escalated with perl -e 'exec "/bin/sh";'
+
+Mitigations:
+- Patch CMS, sanitize queries
+- Enforce least privilege on sudo
+- Segregate web creds from system creds
