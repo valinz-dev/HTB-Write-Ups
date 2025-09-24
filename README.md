@@ -10,10 +10,7 @@ Welcome to my collection of **Hack The Box** write-ups. This repository includes
 
 | Machine Name | Difficulty | OS       | Status     |
 |--------------|------------|----------|------------|
-| Lame         | Easy       | Linux    | Complete   |
 | Blue         | Easy       | Windows  | Complete   |
-| Bashed       | Easy       | Linux    | Complete   |
-| Jerry        | Easy       | Windows  | Complete   |
 | Nibbles      | Easy       | Linux    | Complete   |
 | Shocker      | Easy       | Linux    | Complete   |
 | Irked        | Easy       | Linux    | Complete   |
@@ -23,13 +20,6 @@ Welcome to my collection of **Hack The Box** write-ups. This repository includes
 | ScriptKiddie | Easy       | Linux    | Complete   |
 | Armageddon   | Easy       | Linux    | Complete   |
 | Legacy       | Easy       | Windows  | Complete   |
-| Granny       | Easy       | Windows  | Complete   |
-| Grandpa      | Easy       | Windows  | Complete   |
-| Bastion      | Easy       | Windows  | Complete   |
-| Buff         | Easy       | Windows  | Complete   |
-| Forest       | Easy       | Windows  | Complete   |
-| Active       | Easy       | Windows  | Complete   |
-| Optimum      | Easy       | Windows  | Complete   |
 | Cronos       | Medium     | Linux    | Complete   |
 | Nineveh      | Medium     | Linux    | Complete   |
 | Magic        | Medium     | Linux    | Complete   |
@@ -38,9 +28,6 @@ Welcome to my collection of **Hack The Box** write-ups. This repository includes
 | Haircut      | Medium     | Linux    | Complete   |
 | Pit          | Medium     | Linux    | Complete   |
 | Bastard      | Medium     | Windows  | Complete   |
-| Silo         | Medium     | Windows  | Complete   |
-| Chatterbox   | Medium     | Windows  | Complete   |
-| SecNotes     | Medium     | Windows  | Complete   |
 | Worker       | Medium     | Windows  | Complete   |
 | Intelligence | Medium     | Windows  | Complete   |
 | Fuse         | Medium     | Windows  | Complete   |
