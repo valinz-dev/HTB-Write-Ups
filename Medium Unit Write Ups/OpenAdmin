@@ -1,0 +1,26 @@
+Box: OpenAdmin
+Difficulty: Easy-Medium
+OS: Linux
+
+Recon:
+- nmap -sC -sV -p- <IP>
+- Found HTTP service hosting /ona/
+- Identified OpenNetAdmin app, vulnerable version
+
+Exploitation:
+- Used command injection on find_device.php parameter
+- Executed reverse shell payload and gained foothold
+- Checked configs, found reused database credentials
+
+Lateral Movement:
+- Reused creds to switch to another local user via SSH
+- Enumerated system for privilege escalation
+
+Privilege Escalation:
+- Found sudo permission for nano
+- Used nano escape (!/bin/sh) to gain root
+
+Mitigations:
+- Update/patch OpenNetAdmin
+- Avoid credential reuse
+- Limit sudo access and monitor configs
