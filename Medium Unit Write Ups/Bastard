@@ -1,0 +1,19 @@
+Box: Bastard
+Difficulty: Medium
+OS: Windows
+
+Recon:
+- nmap found IIS with Drupal CMS
+- Drupal 7.x vulnerable to Drupalgeddon2 exploit
+
+Exploitation:
+- Used Metasploit drupalgeddon2 module
+- Gained SYSTEM shell
+
+Privilege Escalation:
+- Initial shell limited
+- Used PowerShell + manual privesc to stabilize SYSTEM shell
+
+Mitigations:
+- Patch Drupal core
+- Limit IIS exposure
