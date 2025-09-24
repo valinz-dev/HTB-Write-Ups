@@ -1,0 +1,22 @@
+Box: Sauna
+Difficulty: Medium
+OS: Windows
+
+Recon:
+- nmap revealed ports 88, 389, 445, 593, 3268 → Active Directory environment
+- Kerberos pre-auth disabled for some accounts
+
+Exploitation:
+- Performed AS-REP roasting with GetNPUsers
+- Cracked hash with hashcat → valid AD creds
+- Used Evil-WinRM for shell access
+
+Privilege Escalation:
+- Ran BloodHound, found privilege escalation path via delegation
+- Used mimikatz to dump TGTs
+- Escalated to Domain Admin
+
+Mitigations:
+- Enforce Kerberos pre-auth
+- Monitor abnormal delegation paths
+- Use strong password policies
