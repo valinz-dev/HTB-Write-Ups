@@ -1,0 +1,22 @@
+Box: Arctic
+Difficulty: Medium
+OS: Windows
+
+Recon:
+- nmap -sV found ColdFusion on port 8500
+- Version vulnerable to file upload exploit
+
+Exploitation:
+- Uploaded JSP webshell through ColdFusion
+- Triggered shell via browser request
+- Gained foothold
+
+Privilege Escalation:
+- Used winPEAS to identify unquoted service path
+- Placed malicious binary in writable path
+- Restarted service → SYSTEM shell
+
+Mitigations:
+- Patch ColdFusion
+- Sanitize file uploads
+- Fix unquoted service paths in Windows
