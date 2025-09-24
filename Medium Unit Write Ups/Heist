@@ -1,0 +1,21 @@
+Box: Heist
+Difficulty: Medium
+OS: Windows
+
+Recon:
+- nmap revealed open ports: 80, 445, 135, 5985
+- Found Cisco router config backup exposed on web
+
+Exploitation:
+- Extracted weakly encrypted passwords from config
+- Cracked hashes, logged into WinRM with recovered creds
+
+Privilege Escalation:
+- Used SharpHound to enumerate AD
+- Found group membership misconfig allowing SeImpersonatePrivilege
+- Escalated via Juicy Potato exploit
+
+Mitigations:
+- Never store configs in plaintext
+- Rotate and strengthen passwords
+- Harden AD privilege delegation
