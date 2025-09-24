@@ -1,0 +1,23 @@
+Box: Shocker
+Difficulty: Easy
+OS: Linux
+
+Recon:
+- nmap -sC -sV -p- <IP>
+- Found port 80 open
+- Gobuster revealed /cgi-bin/test.sh
+
+Exploitation:
+- Tested for Shellshock vulnerability with crafted User-Agent header
+- Confirmed RCE
+- Gained reverse shell using bash payload
+
+Privilege Escalation:
+- Enumerated sudo -l
+- Found ability to run perl as root
+- Escalated with perl -e 'exec "/bin/sh";'
+
+Mitigations:
+- Patch bash (Shellshock vulnerability)
+- Restrict CGI usage
+- Sanitize headers
