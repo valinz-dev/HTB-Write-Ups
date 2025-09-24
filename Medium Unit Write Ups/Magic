@@ -1,0 +1,20 @@
+Box: Magic
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap found HTTP and SSH
+- Web server had image upload feature
+
+Exploitation:
+- Bypassed MIME filtering to upload PHP shell disguised as image
+- Triggered webshell for remote code execution
+
+Privilege Escalation:
+- Local enumeration revealed weak MySQL creds
+- Reused creds for root escalation via sudo
+
+Mitigations:
+- Validate uploads strictly
+- Enforce least privilege on DB creds
+- Patch web application
