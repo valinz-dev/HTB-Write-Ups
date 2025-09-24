@@ -1,0 +1,20 @@
+Box: Jarvis
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap revealed HTTP and MySQL
+- Found vulnerable Joomla component
+
+Exploitation:
+- SQLi in Joomla component gave DB access
+- Extracted user creds, reused for SSH login
+
+Privilege Escalation:
+- Sudo -l showed ability to run systemctl
+- Spawned root shell with GTFOBins method
+
+Mitigations:
+- Patch Joomla component
+- Harden sudo configs
+- Use password separation across services
