@@ -1,0 +1,21 @@
+Box: Poison
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap found HTTP and SSH
+- PHP info page exposed filesystem paths
+
+Exploitation:
+- File inclusion vulnerability allowed arbitrary file reads
+- Discovered creds in system files
+- Logged into SSH with creds
+
+Privilege Escalation:
+- Used sudo -l to find vim permissions
+- Spawned root shell with vim GTFOBins
+
+Mitigations:
+- Remove debug pages from production
+- Harden sudo privileges
+- Secure config files
