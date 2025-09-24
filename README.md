@@ -6,14 +6,6 @@ Welcome to my collection of **Hack The Box** write-ups. This repository includes
 
 ---
 
-## Structure
-
-Each folder contains:
-- `README.md` — The walkthrough
-- Screenshots or payloads (if applicable)
-
----
-
 ## Machines Covered
 
 | Machine Name | Difficulty | OS       | Status     |
