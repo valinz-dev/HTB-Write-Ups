@@ -1,0 +1,21 @@
+Box: Irked
+Difficulty: Easy
+OS: Linux
+
+Recon:
+- nmap -sC -sV -p- <IP>
+- Found port 111 (rpcbind) and 6697 (UnrealIRCd)
+
+Exploitation:
+- UnrealIRCd version vulnerable to backdoor (CVE-2010-2075)
+- Connected via netcat, executed commands remotely
+- Established shell
+
+Privilege Escalation:
+- Found hidden SUID binary
+- Executed binary to spawn root shell
+
+Mitigations:
+- Patch UnrealIRCd
+- Remove backdoored versions from repos
+- Audit SUID binaries
