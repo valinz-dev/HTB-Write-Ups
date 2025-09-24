@@ -1,0 +1,19 @@
+Box: Haircut
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap found HTTP and SSH
+- Web app accepted user-supplied input for curl requests
+
+Exploitation:
+- Exploited SSRF to make local requests
+- Identified admin panel endpoint, used creds for shell
+
+Privilege Escalation:
+- Enumerated system, found SUID binary
+- Exploited SUID binary for root shell
+
+Mitigations:
+- Sanitize user input for curl requests
+- Remove unnecessary SUID binaries
