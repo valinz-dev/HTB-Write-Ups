@@ -1,0 +1,21 @@
+Box: Traverxec
+Difficulty: Easy
+OS: Linux
+
+Recon:
+- nmap showed ports 22 and 80
+- Web server running Nostromo 1.9.6
+
+Exploitation:
+- Nostromo 1.9.6 RCE vulnerability (public exploit available)
+- Uploaded shell, gained low-priv user
+
+Privilege Escalation:
+- Found encrypted password in config
+- Cracked hash, escalated to another user
+- Used sudo misconfig to gain root
+
+Mitigations:
+- Update Nostromo
+- Protect sensitive configs
+- Enforce strong password hashing
