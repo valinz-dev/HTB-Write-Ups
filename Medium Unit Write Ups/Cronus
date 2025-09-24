@@ -1,0 +1,21 @@
+Box: Cronos
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap found HTTP (80), DNS (53), SSH (22)
+- DNS enumeration revealed internal subdomain
+
+Exploitation:
+- Subdomain hosted PHP app with command injection in form field
+- Exploited injection to spawn reverse shell
+
+Privilege Escalation:
+- Found cron job running script as root
+- Script writable by low-priv user
+- Modified script to execute reverse shell as root
+
+Mitigations:
+- Sanitize input in PHP
+- Secure cron jobs with least privilege
+- Apply principle of least privilege on file perms
