@@ -1,0 +1,21 @@
+Box: Reel
+Difficulty: Hard
+OS: Linux
+
+Recon:
+- nmap showed ports 25, 80, 443, 110
+- Web server hosted internal email portal
+
+Exploitation:
+- Found buffer overflow in mail parser service
+- Crafted exploit to achieve RCE
+- Gained low-priv shell
+
+Privilege Escalation:
+- Enumerated kernel version → vulnerable to Dirty COW (CVE-2016-5195)
+- Compiled PoC, escalated to root
+
+Mitigations:
+- Patch kernel vulnerabilities quickly
+- Apply ASLR and hardening measures
+- Isolate services and enforce input sanitization
