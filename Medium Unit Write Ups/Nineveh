@@ -1,0 +1,20 @@
+Box: Nineveh
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap revealed HTTP, HTTPS, and IMAP ports
+- HTTPS site had login form vulnerable to SQLi
+
+Exploitation:
+- Used SQLi to bypass login
+- Discovered file upload functionality allowing PHP shell
+
+Privilege Escalation:
+- Enumerated system, found misconfigured sudo rights for “screen”
+- Escalated using screen GTFOBins method
+
+Mitigations:
+- Fix SQL injection
+- Harden file upload validation
+- Review sudoers configs
