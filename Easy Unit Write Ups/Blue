@@ -1,0 +1,23 @@
+Box: Blue
+Difficulty: Easy
+OS: Windows
+
+Recon:
+- nmap -sC -sV -p- <IP>
+- Found ports 445/139 open, SMB service Windows 7
+- smb-os-discovery script confirms Windows 7 SP1
+- smb-vuln-ms17-010 shows host is vulnerable
+
+Exploitation:
+- EternalBlue (MS17-010) confirmed
+- Used msfconsole exploit/windows/smb/ms17_010_eternalblue
+- Set LHOST/LPORT and gained SYSTEM shell
+
+Post-Exploitation:
+- Verified user: NT AUTHORITY\SYSTEM
+- Grabbed user.txt and root.txt
+
+Mitigations:
+- Apply MS17-010 patch
+- Disable SMBv1 where possible
+- Restrict SMB exposure to trusted networks
