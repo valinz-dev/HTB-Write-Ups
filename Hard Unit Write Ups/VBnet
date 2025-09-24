@@ -1,0 +1,21 @@
+Lab: Custom AD Lab (Inspired by RastaLabs)
+Difficulty: Hard
+OS: Windows (Domain)
+
+Recon:
+- BloodHound + nmap on 389, 445, 88, 5985
+- Identified weak ACL permissions
+
+Exploitation:
+- Kerberoasting → cracked SPN account
+- Pivoted via RDP using cracked creds
+- Discovered service account with excessive privileges
+
+Privilege Escalation:
+- Abused DCSync rights to dump NTDS.dit
+- Extracted krbtgt hash, achieved persistence
+
+Mitigations:
+- Monitor Kerberoasting activity
+- Enforce service account hardening
+- Audit AD permissions and clean excessive ACLs
