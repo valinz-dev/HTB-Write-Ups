@@ -1,0 +1,24 @@
+Box: Nibbles
+Difficulty: Easy
+OS: Linux
+
+Recon:
+- nmap -sC -sV -p- <IP>
+- Found port 80 open, web server
+- Directory busting: discovered /nibbleblog/
+- Identified Nibbleblog CMS
+
+Exploitation:
+- Default credentials worked on admin panel
+- File upload vulnerability in plugin allowed web shell
+- Used reverse shell to gain foothold
+
+Privilege Escalation:
+- Checked sudo -l
+- User had permissions to run `sudo /usr/bin/nano` without password
+- Spawned root shell via GTFOBins
+
+Mitigations:
+- Patch/update Nibbleblog
+- Restrict sudo privileges
+- Enforce strong admin credentials
