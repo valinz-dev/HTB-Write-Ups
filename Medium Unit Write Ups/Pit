@@ -1,0 +1,19 @@
+Box: Pit
+Difficulty: Medium
+OS: Linux
+
+Recon:
+- nmap found HTTP, SMTP, and SSH
+- SMTP banner leaking version vulnerable to exploit
+
+Exploitation:
+- Buffer overflow in SMTP service
+- Executed exploit to spawn shell
+
+Privilege Escalation:
+- Found setuid root binary with weak path usage
+- Manipulated PATH to escalate to root
+
+Mitigations:
+- Patch SMTP service
+- Review custom binaries for path misuse
