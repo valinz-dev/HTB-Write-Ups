@@ -1,0 +1,35 @@
+Box: Tartarsauce
+Difficulty: Hard
+OS: Linux
+
+Recon:
+- Full nmap scan revealed ports 21 (FTP), 25 (SMTP), 80 (HTTP).
+- FTP allowed anonymous but looked empty at first.
+- Tried brute forcing hidden dirs on web server → found /wordpress with old version running.
+
+Enumeration:
+- FTP actually had hidden files (.backup) after enabling -a flag.
+- Found credentials stored in backup configs.
+- Reused creds for WordPress login.
+
+Exploitation:
+- Outdated WordPress plugin vulnerable to RCE.
+- Uploaded PHP shell disguised as plugin → webshell worked.
+- Reverse shell gained as www-data.
+- Enumerated /home → multiple users with restricted permissions.
+- Used backup configs again to pivot into one of the users (password reuse).
+
+Privilege Escalation:
+- Kernel privesc possible: Linux kernel was old and vulnerable to DirtyCOW (CVE-2016-5195).
+- Compiled exploit locally, got root.
+- Alternative vector I noticed: misconfigured SUID binary in /usr/local/bin could have been abused as well.
+
+Notes:
+- Took me a while to realize FTP had hidden content.
+- WordPress plugin enumeration was the big break.
+- Multiple rabbit holes in SMTP enumeration that led nowhere.
+
+Mitigations:
+- Patch WordPress and plugins.
+- Remove sensitive files from FTP (no hidden configs).
+- Update kernel to mitigate DirtyCOW.
