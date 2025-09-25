@@ -31,9 +31,16 @@ Welcome to my collection of **Hack The Box** write-ups. This repository includes
 | Worker       | Medium     | Windows  | Complete   |
 | Intelligence | Medium     | Windows  | Complete   |
 | Fuse         | Medium     | Windows  | Complete   |
+| Passage      | Medium     | Linux    | Complete   |
+| Sauna        | Medium     | Windows  | Complete   |
+| Heist        | Medium     | Windows  | Complete   |
+| Arctic       | Medium     | Windows  | Complete   |
+| Reel         | Hard       | Linux    | Complete   |
 | Kotarak      | Hard       | Linux    | Complete   |
 | Tartarsauce  | Hard       | Linux    | Complete   |
 | Conceal      | Hard       | Windows  | Complete   |
+| RastaLabs    | Hard       | Windows  | Complete   |
+
 
 *More machines coming soon as I progress through HTB!*
 
