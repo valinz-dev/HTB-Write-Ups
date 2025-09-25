@@ -166,6 +166,7 @@ responder, mitm6 – LLMNR/NBT-NS spoofing and poisoning
 
 chisel, ngrok, ssh -R – Pivoting and tunneling
 
+Last updated: 2025-09-24
 john, hashcat, crackstation.net – Password cracking
 
 ---
