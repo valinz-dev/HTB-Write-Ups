@@ -1,0 +1,37 @@
+Box: Conceal
+Difficulty: Hard
+OS: Windows
+
+Recon:
+- Initial nmap: ports 80, 443, 3389 open.
+- Web services hosted a corporate-looking portal; SSL cert had internal domain info.
+- Enum pointed to VPN endpoints accessible with L2TP/IPSec.
+- This was unusual compared to normal HTB flow → took some time to connect the dots.
+
+Enumeration:
+- Web portal leaks a downloadable VPN config.
+- Config hinted at a pre-shared key.
+- Spent time testing combinations of leaked usernames from site + brute forcing weak passwords.
+
+Exploitation:
+- Eventually cracked user creds from leaked password policy PDF.
+- Connected through VPN successfully → internal network visible.
+- Enumerated with nmap inside VPN → found additional SMB shares and RDP (3389).
+- Used creds on RDP to log in as low-priv user.
+
+Privilege Escalation:
+- Dropped SharpHound, ingested into BloodHound.
+- Graph analysis revealed AD misconfig: user had GenericAll rights over another account.
+- Exploited that path → escalated to a service account.
+- From service account, DCSync attack possible with mimikatz.
+- Extracted krbtgt hash → full domain compromise.
+
+Notes:
+- Harder than most boxes. The VPN step was unexpected and threw me off at first.
+- Password policy PDF was the key clue; without it brute force would have been pointless.
+- Learned a lot about chained AD abuse and the importance of BloodHound visualization.
+
+Mitigations:
+- Enforce MFA for VPN access.
+- Remove sensitive docs (like password policies) from public portals.
+- Lock down AD permissions, remove GenericAll where not necessary.
