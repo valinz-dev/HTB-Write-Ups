@@ -1,0 +1,35 @@
+Box: Kotarak
+Difficulty: Hard
+OS: Linux
+
+Recon:
+- Initial nmap: ports 22 (SSH) and 80 (HTTP) open.
+- Web enum showed a simple static site at /
+- Ran gobuster → found /admin and /debug endpoints.
+- /debug leaked server stack details (Python Flask + Jinja2).
+
+Enumeration:
+- Confirmed it was Flask with a template injection vector.
+- Played with payloads like {{7*7}} to confirm SSTI.
+- Once SSTI confirmed, moved to testing RCE via {{ self.__init__.__globals__['os'].popen('id').read() }}
+
+Exploitation:
+- Managed to pop a shell through SSTI → reverse shell with python payload.
+- Shell landed as www-data. Could browse some internal configs but no root yet.
+- Found custom service running on localhost:8888 — looked like a homemade daemon.
+- Grabbed binary over netcat, analyzed with strings & ltrace.
+- Discovered buffer overflow possibility when providing oversized input.
+
+Privilege Escalation:
+- Recompiled a simple PoC buffer overflow exploit (had to re-learn offset finding).
+- Got local root via service exploitation.
+- Root.txt grabbed successfully.
+
+Notes:
+- Dead end: spent ~1h trying to escalate via cron jobs that turned out to be rabbit holes.
+- Key was realizing the binary on localhost was vulnerable.
+
+Mitigations:
+- Sanitize template input → never allow untrusted Jinja evaluation.
+- Audit custom daemons for safe coding practices.
+- Restrict localhost services & apply ASLR/stack protection.
