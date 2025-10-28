@@ -46,7 +46,7 @@ Welcome to my collection of **Hack The Box** write-ups. This repository includes
 
 ---
 
-## 🔧 Tools & Techniques Used
+##  Tools & Techniques Used
 Enumeration
 General:
 
